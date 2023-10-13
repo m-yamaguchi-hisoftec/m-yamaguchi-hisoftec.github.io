@@ -40,6 +40,12 @@
               appId: "21e490aa-9fa9-4431-8ad9-de9f1f5863a3",
             });
           });
+          if('serviceWorker' in navigator) {
+            navigator.serviceWorker
+              .register('OneSignalSDKWorker.js')
+                .then(function() { console.log("Service Worker Registered"); })
+                .catch(function() { console.log("Service Worker Not Registered"); });
+          }
         </script>
     </head>
     <body>
