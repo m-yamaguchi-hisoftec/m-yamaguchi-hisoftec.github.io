@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
     <head>
+        <meta charset="utf-8" />
         <link rel="manifest" href="/manifest.json">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>プッシュ通知アプリ</title>
    
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+        <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register("/sw.js").then((reg) => {
+                    console.log("Service worker registered.", reg);
+                });
+            });
+          }
+          
+          // プッシュ通知の設定
+          window.OneSignal = window.OneSignal || [];
+          OneSignal.push(function () {
+            OneSignal.init({
+              appId: "lh2a8b9d4e-b48b-4e33-9f59-0baa2922d3b8",
+            });
+          });
+        </script>
+        <!--
         <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
         <script>
           window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -26,6 +46,7 @@
             });
           }
         </script>
+        -->
     </head>
     <body>
         <p>プッシュ通知テスト</p>
@@ -33,7 +54,7 @@
     
         <script>
             function test() {
-                window.OneSignalDeferred.getUserId().then(function(userId) {
+                OneSignal.getUserId().then(function(userId) {
                     alert("OneSignal User ID:" + userId);
                 });
             }
