@@ -1,4 +1,5 @@
-# NotifyApp
+# m-yamaguchi-hisoftec.github.io
+PWAで通知を行うアプリです
 
 ## やったこと
 
@@ -20,10 +21,10 @@
 ### sourcetree
 
 - 適当なフォルダ作成
-- フォルダに README.md 作成。内容は適当に。
+- フォルダに README.md、index.html 作成。内容は適当に。
 - sourcetree の `Create` でフォルダパス指定し `作成` クリック (git init やってくれるのかな？)
 
-- README.md をステージに追加
+- README.md、index.html をステージに追加
 - コメント： First commit でコミット
 - `リポジトリ` - `リポジトリ設定`
     - `追加`
@@ -37,3 +38,19 @@
     - `master` にチェックし `プッシュ` クリック
     - github のサインインダイアログが表示されるので、パスワードのところに アクセストークン文字列を入力
     - プッシュ完了すれば OK
+
+### github pages
+
+- ブランチのページの `Settings` - `Pages`
+    - `Build and deployment` - `Branch` の `None` を `master` にして `Save` クリック
+    - `Pages` 設定ページの上部に URL が表示されればOK。表示されない場合は `Pages` 設定ページを開き直してみること。(__URLは大文字小文字を見ているようなので注意__)
+    
+### OneSignal
+
+- アカウント作成
+
+    
+### PWA
+
+- manifest.json 作成
+- sw.js 作成
