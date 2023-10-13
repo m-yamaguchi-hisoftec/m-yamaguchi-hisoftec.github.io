@@ -32,7 +32,7 @@
     
         <script>
             function test() {
-                OneSignal.getUserId().then(function(userId) {
+                OneSignalDeferred.getUserId().then(function(userId) {
                     alert("OneSignal User ID:" + userId);
                 });
             }

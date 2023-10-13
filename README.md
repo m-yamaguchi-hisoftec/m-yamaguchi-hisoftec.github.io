@@ -48,9 +48,14 @@ PWAで通知を行うアプリです
 ### OneSignal
 
 - アカウント作成
-
+- Configure Web Push のところは `Custom Code` を選択
+    - SITE URL： https://[ユーザ名].github.io
+    - DEFAULT ICON URL で png ファイルをアップロード
+- `Download OneSignal SDK files` で SDK をダウンロード
+    - 解凍し `OneSignalSDKWorker.js` をサイトルートに置く
     
 ### PWA
+    プッシュ通知を受信するために購読許可をしてください。
 
 - manifest.json 作成
 - sw.js 作成
