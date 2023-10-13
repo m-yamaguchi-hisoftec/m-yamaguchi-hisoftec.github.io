@@ -11,6 +11,9 @@
           OneSignalDeferred.push(function(OneSignal) {
             OneSignal.init({
               appId: "21e490aa-9fa9-4431-8ad9-de9f1f5863a3",
+              notifyButton: {
+                enable: true,
+              },
             });
           });
           if('serviceWorker' in navigator) {
@@ -24,6 +27,15 @@
         </script>
     </head>
     <body>
-        プッシュ通知テスト
+        <p>プッシュ通知テスト</p>
+        <button onclick="test()">Show OneSignal User ID</button>
+    
+        <script>
+            function test() {
+                OneSignal.getUserId().then(function(userId) {
+                    alert("OneSignal User ID:" + userId);
+                });
+            }
+        </script>
     </body>
 </html>
