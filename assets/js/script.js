@@ -14,17 +14,20 @@ if('serviceWorker' in navigator) {
             .register('OneSignalSDKWorker.js')
                 .then(function() { console.log("Service Worker Registered"); })
                 .catch(function() { console.log("Service Worker Not Registered"); });
-
-        function permissionChangeListener(permission) {
-            var flagShowWhenPermision = (permission) ? "block" : "none";
-            var flagHideWhenPermision = (permission) ? "none" : "block";
-            var divTutorial = document.getElementById("confirm-notification-tutorial");
-            var divJumpToPg = document.getElementById("jump-to-page");
-            divTutorial.style.display = flagHideWhenPermision;
-            divJumpToPg.style.display = flagShowWhenPermision;
-            console.log("permissionChangeListener: permission=" + permission + " / flag1=" + flagShowWhenPermision + " / flag2=" + flagHideWhenPermision);
-        }
-        OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
-        permissionChangeListener(OneSignal.Notifications.permission);
     });
+}
+
+function permissionChangeListener(permission) {
+    var flagShowWhenPermision = (permission) ? "block" : "none";
+    var flagHideWhenPermision = (permission) ? "none" : "block";
+    var divTutorial = document.getElementById("confirm-notification-tutorial");
+    var divJumpToPg = document.getElementById("jump-to-page");
+    divTutorial.style.display = flagHideWhenPermision;
+    divJumpToPg.style.display = flagShowWhenPermision;
+    console.log("permissionChangeListener: permission=" + permission + " / flag1=" + flagShowWhenPermision + " / flag2=" + flagHideWhenPermision);
+}
+
+function checkPermission() {
+    OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
+    permissionChangeListener(OneSignal.Notifications.permission);
 }
