@@ -1,5 +1,5 @@
 window.OneSignalDeferred = window.OneSignalDeferred || [];
-OneSignalDeferred.push(function(OneSignal) {
+OneSignalDeferred.push(async function(OneSignal) {
     OneSignal.init({
         appId: "21e490aa-9fa9-4431-8ad9-de9f1f5863a3",
         notifyButton: {
@@ -18,7 +18,7 @@ OneSignalDeferred.push(function(OneSignal) {
     }
 
     OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
-    setTimeout(permissionChangeListener, 1000, OneSignal.Notifications.permission);
+    setTimeout(permissionChangeListener, 1000, await OneSignal.Notifications.permission);
 });
 
 if('serviceWorker' in navigator) {
