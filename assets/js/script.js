@@ -6,11 +6,18 @@ OneSignalDeferred.push(function(OneSignal) {
             enable: true,
         },
     });
-    OneSignal.Notifications.addEventListener("foregroundWillDisplay", (event) => {
-        console.log(`notification will display: ${notification}`);
-    });
-
+    
+    function permissionChangeListener(permission) {
+        var flag = (permission) ? "block" : "none";
+        var divTutorial = document.getElementById("confirm-notification-tutorial");
+        var divJumpToPg = document.getElementById("jump-to-page");
+        divTutorial.style.display = flag;
+        divJumpToPg.style.display = flag;
+    }
+    OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
+    permissionChangeListener(OneSignal.Notifications.permission);
 });
+
 if('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker
