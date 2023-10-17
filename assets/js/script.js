@@ -18,7 +18,7 @@ OneSignalDeferred.push(async function(OneSignal) {
     }
 
     OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
-    setTimeout(permissionChangeListener, 1000, await OneSignal.Notifications.permission);
+    permissionChangeListener(await OneSignal.Notifications.permission);
 });
 
 if('serviceWorker' in navigator) {
