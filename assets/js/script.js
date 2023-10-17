@@ -6,11 +6,8 @@ OneSignalDeferred.push(function(OneSignal) {
             enable: true,
         },
     });
-    //デフォルト起動URL
-    OneSignal.Notifications.setDefaultUrl("http://www.hisoftec.co.jp/php/index.php");
-    
     OneSignal.Notifications.addEventListener("foregroundWillDisplay", (event) => {
-        console.log(`notification will display: ${event}`);
+        console.log(`notification will display: ${notification}`);
     });
 
 });
