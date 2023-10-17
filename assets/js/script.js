@@ -14,6 +14,7 @@ OneSignalDeferred.push(function(OneSignal) {
         var divJumpToPg = document.getElementById("jump-to-page");
         divTutorial.style.display = flagHideWhenPermision;
         divJumpToPg.style.display = flagShowWhenPermision;
+        console.log("permissionChangeListener: permission=" + permission + " / flag1=" + flagShowWhenPermision + " / flag2=" + flagHideWhenPermision);
     }
     OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
     permissionChangeListener(OneSignal.Notifications.permission);
