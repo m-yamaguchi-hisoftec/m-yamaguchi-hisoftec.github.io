@@ -7,6 +7,7 @@ OneSignalDeferred.push(async function(OneSignal) {
         },
     });
 
+    /*
     function permissionChangeListener(permission) {
         var flagShowWhenPermision = (permission) ? "block" : "none";
         var flagHideWhenPermision = (permission) ? "none" : "block";
@@ -19,6 +20,8 @@ OneSignalDeferred.push(async function(OneSignal) {
 
     OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
     permissionChangeListener(await OneSignal.Notifications.permission);
+    //OneSignal.Notifications.permissionが初回表示時に常にfalseとなるので上記は不可
+    */
 });
 
 if('serviceWorker' in navigator) {
