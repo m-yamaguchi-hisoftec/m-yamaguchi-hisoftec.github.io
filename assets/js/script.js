@@ -8,11 +8,12 @@ OneSignalDeferred.push(function(OneSignal) {
     });
     
     function permissionChangeListener(permission) {
-        var flag = (permission) ? "block" : "none";
+        var flagShowWhenPermision = (permission) ? "block" : "none";
+        var flagHideWhenPermision = (permission) ? "none" : "block";
         var divTutorial = document.getElementById("confirm-notification-tutorial");
         var divJumpToPg = document.getElementById("jump-to-page");
-        divTutorial.style.display = flag;
-        divJumpToPg.style.display = flag;
+        divTutorial.style.display = flagHideWhenPermision;
+        divJumpToPg.style.display = flagShowWhenPermision;
     }
     OneSignal.Notifications.addEventListener("permissionChange", permissionChangeListener);
     permissionChangeListener(OneSignal.Notifications.permission);
